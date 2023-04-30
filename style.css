@@ -2,6 +2,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
+* {
+  box-sizing: border-box;
+}
 body {
   background-image: url("./images/workspace.avif");
   background-repeat: no-repeat;
@@ -13,6 +16,7 @@ body {
 .enter-data {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .enter-data {
   margin-bottom: 1rem;
@@ -22,17 +26,102 @@ body {
   font-family: "Ubuntu";
   font-size: 60px;
   text-align: center;
-  background: linear-gradient(to right, #fff, 40%, #9cbd5f);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(17, 28, 29, 40%);
+  transition: all ease-in 0.5s;
 }
 
+.plans {
+  color: #9cbd5f;
+  white-space: pre;
+}
+
+.question {
+  position: relative;
+  font-family: "Ubuntu";
+  cursor: pointer;
+  font-size: 90px;
+  color: #9cbd5f;
+  text-shadow: 1px 1px 2px #111c1d;
+  animation: wavy 8s infinite ease-in-out;
+}
+@keyframes wavy {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px) rotateY(360deg);
+  }
+}
+
+[mytitle] {
+  cursor: pointer;
+}
+[mytitle]:after {
+  content: "";
+}
+[mytitle]:hover:after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: max-content;
+  padding: 4px 7px;
+  font-family: "Ubuntu";
+  font-size: 12px;
+  font-weight: lighter;
+  content: attr(mytitle);
+  background: rgba(0, 0, 0, 35%);
+  color: #fff;
+  border-radius: 5px;
+}
+.modal-window {
+  position: absolute;
+  top: 17%;
+  right: 7%;
+  display: none;
+  font-family: "Urbanist";
+  max-width: max-content;
+  background: rgba(171, 183, 212, 90%);
+  color: #fff;
+  padding: 2%;
+  border-radius: 5px;
+}
+.modal-window div {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-bottom: 5px;
+}
+.modal-window img {
+  max-width: 20px;
+}
+p {
+  margin: 0;
+  text-shadow: 1px 1px 1px rgba(17, 28, 29, 80%);
+}
+.close {
+  display: flex;
+  justify-content: flex-end;
+}
+.close button {
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  right: 4px;
+  background: none;
+  border: none;
+  transition: ease-in 0.2s;
+}
+.close button:hover {
+  transform: scale(1.1);
+}
 .input {
   font-family: "Urbanist";
   padding: 10px;
   width: 40%;
   border: none;
-
   outline: none;
   border-radius: 5px 0 0 5px;
   color: #111c1d;
@@ -55,6 +144,7 @@ body {
   border: none;
   border-radius: 0 5px 5px 0;
   transition: all 0.5s ease;
+  text-shadow: 1px 1px 1px rgba(17, 28, 29, 40%);
 }
 .button:hover {
   background: linear-gradient(45deg, #db9f6d, rgba(0, 0, 0, 85%));
@@ -79,6 +169,7 @@ ul {
   border-radius: 5px;
   border-bottom: 1px solid rgba(0, 0, 0, 35%);
   padding: 5px 5px 5px 8px;
+  text-shadow: 1px 1px 1px #000;
 }
 ul li::before {
   content: "";
@@ -91,9 +182,11 @@ ul li::before {
 
 .finished-task {
   color: rgba(0, 0, 0, 35%);
+
   text-decoration: line-through;
   transition: all ease-in-out 0.7s;
   background: rgba(202, 237, 137, 50%);
+  text-shadow: none;
 }
 
 .finished-task::before {
@@ -109,6 +202,9 @@ ul li::before {
   .title {
     font-size: 40px;
   }
+  .question {
+    font-size: 60px;
+  }
   .input {
     width: 45%;
   }
@@ -120,6 +216,9 @@ ul li::before {
 @media all and (max-width: 500px) {
   .title {
     font-size: 30px;
+  }
+  .question {
+    font-size: 50px;
   }
   .input {
     width: 60%;

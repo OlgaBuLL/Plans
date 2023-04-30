@@ -1,7 +1,9 @@
 const input = document.querySelector(".input");
 const button = document.querySelector(".button");
-
+const hint = document.querySelector(".question");
+const modalWindow = document.querySelector(".modal-window");
 const toDoContainer = document.querySelector(".container");
+const closeBtn = document.querySelector(".close");
 
 function createNewTask() {
   let newTask = document.createElement("li");
@@ -26,4 +28,12 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     createNewTask();
   }
+});
+
+hint.addEventListener("click", () => {
+  modalWindow.style.display = "inherit";
+});
+
+closeBtn.addEventListener("click", () => {
+  modalWindow.style.display = "none";
 });
