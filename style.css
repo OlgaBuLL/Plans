@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url("./images/workspace.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+.title,
+.enter-data {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.title {
+  font-family: "Ubuntu";
+  font-size: 60px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(17, 28, 29, 40%);
+  transition: all ease-in 0.5s;
+}
+.plans {
+  color: #9cbd5f;
+  white-space: pre;
+}
+
+.question {
+  position: relative;
+  font-family: "Ubuntu";
+  cursor: pointer;
+  font-size: 90px;
+  color: #9cbd5f;
+  text-shadow: 1px 1px 2px #111c1d;
+  animation: wavy 8s infinite ease-in-out;
+}
+@keyframes wavy {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px) rotateY(360deg);
+  }
+}
+
+[mytitle] {
+  cursor: pointer;
+}
+[mytitle]:after {
+  content: "";
+}
+[mytitle]:hover:after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  width: max-content;
+  padding: 4px 7px;
+  font-family: "Ubuntu";
+  font-size: 12px;
+  font-weight: lighter;
+  content: attr(mytitle);
+  background: rgba(0, 0, 0, 35%);
+  color: #fff;
+  border-radius: 5px;
+}
+.modal-window {
+  position: absolute;
+  top: 17%;
+  right: 7%;
+  display: none;
+  font-family: "Urbanist";
+  max-width: max-content;
+  background: rgba(171, 183, 212, 90%);
+  color: #fff;
+  padding: 2%;
+  border-radius: 5px;
+}
+.modal-window div {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-bottom: 5px;
+}
+.modal-window img {
+  max-width: 20px;
+}
+p {
+  text-shadow: 1px 1px 1px rgba(17, 28, 29, 80%);
+}
+.close {
+  display: flex;
+  justify-content: flex-end;
+}
+.close button {
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  right: 4px;
+  background: none;
+  border: none;
+  transition: ease-in 0.2s;
+}
+.close button:hover {
+  transform: scale(1.1);
+}
+.input {
+  font-family: "Urbanist";
+  padding: 10px;
+  width: 55%;
+  border: none;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+  color: #111c1d;
+  transition: all 0.3s ease;
+}
+.input:focus {
+  border: 1px solid #9cbd5f;
+}
+.input::placeholder {
+  font-family: "Urbanist";
+}
+
+.button {
+  cursor: pointer;
+  font-family: "Urbanist";
+  font-weight: bold;
+  color: #fff;
+  padding: 10px;
+  background: #9cbd5f;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  text-shadow: 1px 1px 1px rgba(17, 28, 29, 40%);
+  transition: all 0.5s ease;
+}
+.button:hover {
+  background: linear-gradient(45deg, #db9f6d, rgba(0, 0, 0, 85%));
+}
+.container {
+  margin: 0 auto;
+  width: 70%;
+  border-radius: 5px;
+  background: linear-gradient(325deg, rgba(0, 0, 0, 55%), 80%, #db9f6d);
+  padding: 0;
+}
+
+.new-task {
+  display: grid;
+  grid-template-columns: 6% 1fr 20%;
+  align-items: center;
+  column-gap: 1rem;
+  border-radius: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 35%);
+  padding: 7px 10px 7px;
+}
+
+p::before {
+  content: "";
+  min-width: 30px;
+  min-height: 30px;
+  background-size: 30px;
+  background-image: url("./images/check-tick-svgrepo-com.svg");
+  background-repeat: no-repeat;
+}
+.input-value {
+  font-family: "Ubuntu";
+  color: #fff;
+  font-size: larger;
+  white-space: normal;
+}
+.date {
+  color: #db9f6d;
+  font-family: "Urbanist";
+  text-align: right;
+  font-size: 12px;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+.finished-task {
+  color: rgba(0, 0, 0, 35%);
+  text-decoration: line-through;
+  transition: all ease-in-out 0.7s;
+  background: rgba(202, 237, 137, 50%);
+  text-shadow: none;
+}
+
+.finished-task::before {
+  content: "";
+  min-width: 30px;
+  min-height: 30px;
+  background-size: 30px;
+  background-image: url("./images/finished.svg");
+  background-repeat: no-repeat;
+}
+
+@media all and (max-width: 800px) {
+  .title {
+    font-size: 40px;
+  }
+  .question {
+    font-size: 60px;
+  }
+  .input {
+    width: 75%;
+  }
+  .container {
+    width: 85%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .title {
+    font-size: 30px;
+  }
+  .question {
+    font-size: 50px;
+  }
+
+  .container {
+    width: 90%;
+  }
+  .new-task {
+    grid-template-columns: 10% 1fr 20%;
+    gap: 0.6rem;
+  }
+  .input-value {
+    font-size: medium;
+  }
+  .date {
+    font-size: 10px;
+  }
+  p::before {
+    min-width: 22px;
+    min-height: 22px;
+    background-size: 22px;
+  }
+  .finished-task::before {
+    min-width: 22px;
+    min-height: 22px;
+    background-size: 22px;
+  }
+}
