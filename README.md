@@ -15,10 +15,10 @@
 ## About The Project
 
 The project was created to put down your daily plans📗🖊     
- - Click on the Question mark gives you a hint
- - One click finishes task    
- - Double click deletes task
- - All your tasks are stored in LocalStorage, so you won't loose them, in case of reloading the page
+ - Click on the **Question mark** gives you a hint
+ - **One click** finishes task    
+ - **Double click** deletes task
+ - All your **tasks are stored in LocalStorage**, so you won't loose them, in case of reloading the page
 <br>
 <br>
 
