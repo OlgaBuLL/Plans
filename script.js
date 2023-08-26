@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     for (let i = 0; i < tasksLS.length; i++) {
       createNewTask(tasksLS[i].description, tasksLS[i].date);
-      console.log(tasksLS[i].description, tasksLS[i].date);
     }
   }
 });
@@ -43,7 +42,6 @@ function createNewTask(description, date) {
   newTask.appendChild(newDate);
 
   tasks.push(myTask);
-  console.log(tasks);
   input.value = "";
 
   toDoContainer.appendChild(newTask);
@@ -57,10 +55,8 @@ function createNewTask(description, date) {
   // Delete Task
   newTask.addEventListener("dblclick", () => {
     toDoContainer.removeChild(newTask);
-    console.log(newDate.innerHTML);
 
     let tasksLocalStorage = JSON.parse(localStorage["tasks"]);
-    console.log(tasksLocalStorage);
 
     for (let i = 0; i < tasksLocalStorage.length; i++) {
       if (tasksLocalStorage[i].date === newDate.innerHTML)
@@ -69,9 +65,12 @@ function createNewTask(description, date) {
     localStorage.setItem("tasks", JSON.stringify(tasksLocalStorage));
   });
 }
+// по кнопке "Add"
+button.addEventListener("click", () => {
+  createNewTask();
+});
 
-button.addEventListener("click", createNewTask);
-
+// по нажатию на "Enter"
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     createNewTask();
@@ -102,7 +101,6 @@ function getTodaysDate() {
   month < 10
     ? (month = String(now.getMonth() + 1).padStart(2, "0"))
     : (month = now.getMonth() + 1);
-  // console.log(month);
 
   // years
   let year = now.getFullYear();
@@ -112,21 +110,18 @@ function getTodaysDate() {
   hours < 10
     ? (hours = String(now.getHours()).padStart(2, "0"))
     : (hours = now.getHours());
-  // console.log(hours);
 
   // minutes
   let minutes = now.getMinutes();
   minutes < 10
     ? (minutes = String(now.getMinutes()).padStart(2, "0"))
     : (minutes = now.getMinutes());
-  // console.log(minutes);
 
   //seconds
   let seconds = now.getSeconds();
   seconds < 10
     ? (seconds = String(now.getSeconds()).padStart(2, "0"))
     : (seconds = now.getSeconds());
-  // console.log(seconds);
 
   let todaysDate = `${dateNumber}.${month}.${year},  ${hours}:${minutes}:${seconds}`;
 
